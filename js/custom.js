@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(window).load(function () {
   console.log("jquery ready");
 
   //header Function
