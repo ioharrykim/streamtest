@@ -1,79 +1,78 @@
-$(function() {
-    //header Function
-    $('header ul li').click(function(){
-        $('header ul li').removeClass('on');
-        $(this).addClass('on');
-    })
+$(document).ready(function () {
+  console.log("jquery ready");
 
-    $('.trigger').click(function(){
-        $('body').toggleClass('hidden');
-        $(this).toggleClass('on');
-        $('header nav').toggleClass('on');
-    })
+  //header Function
+  $("header ul li").click(function () {
+    $("header ul li").removeClass("on");
+    $(this).addClass("on");
+  });
 
-    //Recom
-    var swiper = new Swiper(".recom-slide", {
-        slidesPerView: 'auto',
-        breakpoints: {
-            768: {
-            slidesPerView: 'auto',
-            },
-            1024: {
-            slidesPerView: 'auto',
-            }
-        }
-    });
+  $(".trigger").click(function () {
+    $("body").toggleClass("hidden");
+    $(this).toggleClass("on");
+    $("header nav").toggleClass("on");
+  });
 
-    //Music
-    var swiper = new Swiper(".music-slide", {
-        slidesPerView: 'auto',
-        slidesBetween: 20,
-    });
+  //Recom
+  var swiper = new Swiper(".recom-slide", {
+    slidesPerView: "auto",
+    breakpoints: {
+      768: {
+        slidesPerView: "auto",
+      },
+      1024: {
+        slidesPerView: "auto",
+      },
+    },
+  });
 
-    //News
-    var swiper = new Swiper(".news-slide", {
-        slidesPerView: 'auto',
-        slidesBetween: 20,
-    });
+  //Music
+  var swiper = new Swiper(".music-slide", {
+    slidesPerView: "auto",
+    slidesBetween: 20,
+  });
 
-    $('.check label').click(function(){
-        $(this).toggleClass('on');
-    })
+  //News
+  var swiper = new Swiper(".news-slide", {
+    slidesPerView: "auto",
+    slidesBetween: 20,
+  });
 
-    //이메일 정규식
-    $("#emailletter").submit(function() {
-        if($('#check').is(":checked") == false){
-            alert('Please check first.')
-            return false;
-        }
-        else if($('#txt').val() == ''){
-            alert('Please enter your e-mail address.');
-            $('#txt').focus();
-            return false;
-        }
-    });
+  $(".check label").click(function () {
+    $(this).toggleClass("on");
+  });
 
-    // external js: isotope.pkgd.js
+  //이메일 정규식
+  $("#emailletter").submit(function () {
+    if ($("#check").is(":checked") == false) {
+      alert("Please check first.");
+      return false;
+    } else if ($("#txt").val() == "") {
+      alert("Please enter your e-mail address.");
+      $("#txt").focus();
+      return false;
+    }
+  });
 
-    //Blog
-    $('.grid').isotope({
-        itemSelector: '.grid-item',
-        percentPosition: true,
-        masonry: {
-            columnWidth: '.grid-sizer'
-        }
-    });
+  // external js: isotope.pkgd.js
+
+  //Blog
+  $(".grid").isotope({
+    itemSelector: ".grid-item",
+    percentPosition: true,
+    masonry: {
+      columnWidth: ".grid-sizer",
+    },
+  });
 
   //theme change
-$('.theme-btn').click(function(){
-    if($('body').hasClass('on')) {
-        $('body').removeClass('on');
-        $('.theme-btn span').text('White Theme');
+  $(".theme-btn").click(function () {
+    if ($("body").hasClass("on")) {
+      $("body").removeClass("on");
+      $(".theme-btn span").text("White Theme");
+    } else {
+      $("body").addClass("on");
+      $(".theme-btn span").text("Dark Theme");
     }
-    else {
-        $('body').addClass('on');
-        $('.theme-btn span').text('Dark Theme');
-    }
-    
-})
-})
+  });
+});
